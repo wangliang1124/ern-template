@@ -59,7 +59,6 @@ class TodoStore {
   // A Todo was somehow deleted, clean it from the client memory.
   removeTodo = (todo) => {
     this.todos.splice(this.todos.indexOf(todo), 1);
-    todo.dispose();
     this.saveTodoList();
   };
 

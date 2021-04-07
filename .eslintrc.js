@@ -1,4 +1,4 @@
-const spellcheckSkipWords = require('./config/spell-check-skip-words');
+const spellcheckSkipWords = require('./script/spell-check-skip-words');
 
 module.exports = {
   env: {
@@ -10,6 +10,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

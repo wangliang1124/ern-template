@@ -1,12 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-const spellcheckAllowlist = fs
-  .readFileSync(path.join(__dirname, './config/spell-check-allowlist.dict'))
-  .toString()
-  .split('\n')
-  .map((word) => word.trim())
-  .filter((word) => word); // Remove any empty lines
+const spellcheckSkipWords = require('./config/spell-check-skip-words');
 
 module.exports = {
   env: {
@@ -25,9 +17,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react'],
   plugins: ['react', 'react-native', 'spellcheck'],
-
   rules: {
     'no-console': 0,
     'react/jsx-uses-vars': 2,
@@ -51,7 +41,7 @@ module.exports = {
         strings: true,
         identifiers: false,
         lang: 'en_US',
-        skipWords: spellcheckAllowlist,
+        skipWords: spellcheckSkipWords,
         skipIfMatch: [
           'http://[^s]*',
           'file://[^s]*',
@@ -114,9 +104,6 @@ module.exports = {
     ],
     'import/no-cycle': 0,
     'no-bitwise': 0,
-    'sonarjs/cognitive-complexity': 0,
-    'sonarjs/no-duplicate-string': 0,
-    'sonarjs/no-identical-functions': 0,
     'no-alert': 0,
     'no-iterator': 0,
     'no-restricted-syntax': ['error', 'WithStatement', "BinaryExpression[operator='in']"],
@@ -146,7 +133,6 @@ module.exports = {
     'max-classes-per-file': 0,
     'import/prefer-default-export': 0,
     camelcase: ['warn', { ignoreImports: true, ignoreDestructuring: true, ignoreGlobals: true }],
-    'sonarjs/no-collapsible-if': 'warn',
     'react/sort-comp': 1,
     'react/prefer-stateless-function': 1,
     'import/no-named-as-default': 1,

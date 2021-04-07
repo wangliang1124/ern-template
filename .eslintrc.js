@@ -138,5 +138,6 @@ module.exports = {
     'import/no-named-as-default': 1,
     'react/destructuring-assignment': 'warn',
     'react/no-unused-prop-types': 1,
+    'react/jsx-wrap-multilines': [1, { prop: 'ignore' }],
   },
 };

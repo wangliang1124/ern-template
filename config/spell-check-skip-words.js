@@ -281,6 +281,7 @@ const skipWords = [
 
   // proper nouns
   'airbnb',
+  'Mobx',
 ];
 
 module.exports = skipWords;

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { makeAutoObservable, runInAction } from 'mobx';
-import api from '~/api';
+import Api from '~/api';
 import { getRandomColor, uuidv4 } from '~/utils';
 
 class TodoStore {
@@ -15,7 +15,7 @@ class TodoStore {
   // Fetches all Todos from the server.
   loadTodos = () => {
     this.isLoading = true;
-    api.demo.fetchTodos().then((fetchedTodos) => {
+    Api.Demo.fetchTodos().then((fetchedTodos) => {
       runInAction(() => {
         fetchedTodos.forEach((json) => this.updateTodoFromServer(json));
         this.isLoading = false;

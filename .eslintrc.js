@@ -133,7 +133,7 @@ module.exports = {
     ],
     'max-classes-per-file': 0,
     'import/prefer-default-export': 0,
-    camelcase: ['warn', { ignoreImports: true, ignoreDestructuring: true, ignoreGlobals: true }],
+    camelcase: 0, // ['warn', { ignoreImports: true, ignoreDestructuring: true, ignoreGlobals: true }],
     'react/sort-comp': 1,
     'react/prefer-stateless-function': 1,
     'import/no-named-as-default': 1,

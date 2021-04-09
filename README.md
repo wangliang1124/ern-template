@@ -260,3 +260,29 @@ components/
 ## 最佳实践
 
 TODO
+
+## TODO
+
+- 跟 Native 无数据交互
+  - 单纯静态展示页面。
+  - 直接从网络获取数据。
+- RN 单向从 Native 获取数据
+  - 启动的时候 Native 通过参数传递变量
+  - RN 通过 API 读取 Native 的数据
+- RN 调用 Native
+  - 不回调，可以做成同回调一次一样，因为 RN 调用 Native 本身都是异步的。
+  - 回调一次，可以使用 RN 原生的 Callback
+  - 回调多次，原生不支持，必须使用 Event 方式。
+- Native 主动调用 RN
+  - 通过 Event Emit RN
+  - 通过 Headless Service（Android）。
+- RN 页面需要存储数据
+  - 存储数据库
+  - 存储 Preference
+- RN 底层对应的 Native Page
+  - Full Page，全页面都是 RN
+  - 有本地导航栏的页面，导航栏风格保持跟 Native 一致
+  - Dialog 风格
+- RN 页面跳转
+  - 纯粹在 RN 层面跳转
+  - 依托 Native 页面导航

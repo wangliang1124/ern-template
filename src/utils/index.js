@@ -16,3 +16,11 @@ export function sleep(timeout) {
     setTimeout(resolve, timeout);
   });
 }
+
+export function formatParams(data) {
+  const arr = [];
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) arr.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`);
+  }
+  return arr.join('&');
+}

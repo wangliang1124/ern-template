@@ -14,6 +14,38 @@ The fastest way to start using lint-staged is to run following command in your t
 
 It will install and configure husky and lint-staged depending on code quality tools from package.json dependencies so please make sure you install (npm install --save-dev) and configure all code quality tools like Prettier, ESlint prior that.
 
+## 引入的库
+
+### 导航
+
+react-navigation
+
+> https://reactnavigation.org/docs/getting-started
+
+### 状态管理
+
+Mobx
+
+> https://mobx.js.org/README.html
+
+### 网络请求
+
+React Native Fetch
+
+donut 项目使用的是 react native 自身提供的 fetch 方法。当然如果需要更多可定制的功能，可以使用 axios。
+
+> https://reactnative.cn/docs/network
+
+### 本地存储
+
+@react-native-async-storage/async-storage
+
+> https://github.com/react-native-async-storage/async-storage
+
+### 数据库
+
+目前 donut 使用的是 sqlite， 但使用它需要用比较原始的 sql 语句，不够方便
+
 ## 目录结构规范
 
 ```

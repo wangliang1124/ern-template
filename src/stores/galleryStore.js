@@ -20,7 +20,7 @@ class GalleryStore {
 
   isRefreshing = false;
 
-  total = 0;
+  total = -1;
 
   get completed() {
     console.log('Computing...');

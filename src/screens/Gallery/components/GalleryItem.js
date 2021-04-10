@@ -1,25 +1,39 @@
+import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
 import React, { useState } from 'react';
-import { Image } from 'react-native';
+import { TouchableOpacity, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
+import Router from '~/utils/router';
 
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
 
-function GalleryItem({ imageUri, id }) {
+function GalleryItem({ image }) {
   const [loaded, setLoaded] = useState(false);
-
-  //   console.log('------ render item -----', id);
+  const { previewURL } = image;
+  // console.log('------ render item -----', id);
+  //   const navigation = useNavigation();
 
   return (
     <ShimmerPlaceholder width={180} height={100} visible={loaded}>
-      <Image
-        source={{ uri: imageUri }}
-        style={{ width: 180, height: 100, backgroundColor: '#ccc' }}
-        onLoadEnd={() => {
-          setLoaded(true);
+      <TouchableOpacity
+        onPress={() => {
+          Router.push('GalleryPhotoDetail', {
+            image,
+          });
+          //   navigation.navigate('GalleryPhotoDetail', {
+          //     image,
+          //   });
         }}
-      />
+      >
+        <Image
+          source={{ uri: previewURL }}
+          style={{ width: 180, height: 100, backgroundColor: '#ccc' }}
+          onLoadEnd={() => {
+            setLoaded(true);
+          }}
+        />
+      </TouchableOpacity>
     </ShimmerPlaceholder>
   );
 }

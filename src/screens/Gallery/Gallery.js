@@ -26,7 +26,7 @@ class Gallery extends Component {
           numColumns={2}
           contentContainerStyle={styles.contentContainerStyle}
           columnWrapperStyle={styles.columnWrapperStyle}
-          renderItem={({ item }) => <GalleryItem imageUri={item.previewURL} id={item.id} />}
+          renderItem={({ item }) => <GalleryItem image={item} />}
           keyExtractor={(item, index) => String(item.id + index)}
           onRefresh={refresh}
           refreshing={isRefreshing}

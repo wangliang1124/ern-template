@@ -42,6 +42,14 @@ donut 项目使用的是 react native 自身提供的 fetch 方法。当然如�
 
 > https://github.com/react-native-async-storage/async-storage
 
+### 手势处理、Touchable
+
+react-native-gesture-handler
+https://docs.swmansion.com/react-native-gesture-handler/docs/
+
+注：donut 项目中的 react-native-platform-touchable is no longer maintained
+推荐 https://docs.swmansion.com/react-native-gesture-handler/docs/api/components/buttons
+
 ### 数据库
 
 目前 donut 使用的是 sqlite， 但使用它需要用比较原始的 sql 语句，不够方便
@@ -259,7 +267,23 @@ components/
 
 ## 最佳实践
 
-TODO
+这个项目中可以探索关于性能优化、打包编译、第三方库的最佳使用方式等等
+
+UI 适配最佳实践
+
+React Navigation 最佳实践
+
+- 怎样传递参数
+- 动态设置导航
+- 导航和组件通信
+- ...
+
+Mobx 最佳实践
+
+Realm 最佳实践
+
+处理 Warning: Can't perform a React state update on an unmounted component
+...
 
 ## TODO
 
@@ -284,5 +308,6 @@ TODO
   - 有本地导航栏的页面，导航栏风格保持跟 Native 一致
   - Dialog 风格
 - RN 页面跳转
+
   - 纯粹在 RN 层面跳转
   - 依托 Native 页面导航

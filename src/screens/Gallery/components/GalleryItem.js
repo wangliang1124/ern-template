@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
+import { Screens } from '~/router';
 import Router from '~/utils/router';
 
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
@@ -13,12 +14,11 @@ function GalleryItem({ image }) {
   const { previewURL } = image;
   // console.log('------ render item -----', id);
   //   const navigation = useNavigation();
-
   return (
     <ShimmerPlaceholder width={180} height={100} visible={loaded}>
       <TouchableOpacity
         onPress={() => {
-          Router.push('GalleryPhotoDetail', {
+          Router.push(Screens.GalleryPhotoDetail, {
             image,
           });
           //   navigation.navigate('GalleryPhotoDetail', {

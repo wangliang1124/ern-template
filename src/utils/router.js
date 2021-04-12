@@ -17,7 +17,15 @@ function navigate(routeName, params) {
   // console.log('navigationRef.current---', navigationRef.current);
   if (isReadyRef.current && navigationRef.current) {
     // Perform navigation if the app has mounted
-    navigationRef.current.navigate(routeName, params);
+    let name;
+    if (typeof routeName === 'object' && typeof routeName.name === 'string') {
+      name = routeName.name;
+    } else if (typeof routeName === 'string') {
+      name = routeName;
+    } else {
+      console.warn('routeName must be string or object');
+    }
+    navigationRef.current.navigate(name, params);
   } else {
     // You can decide what to do if the app hasn't mounted
     // You can ignore this, or add these actions to a queue you can call later

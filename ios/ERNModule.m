@@ -7,20 +7,18 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
+@interface RCT_EXTERN_MODULE (ERNModule, NSObject)
 
-//@interface ERNModule : NSObject<RCTBridgeModule>
-@interface RCT_EXTERN_MODULE(ERNModule, NSObject)
+RCT_EXTERN_METHOD(doExpensiveLoop : (double)loopTimes
+			  withResolver : (RCTPromiseResolveBlock) resove
+				  withRejecter : (RCTPromiseRejectBlock)reject)
 
-//RCT_EXPORT_MODULE();
-// 这个方法不会达到想要的效果
-RCT_EXPORT_METHOD(EdoBGThread:(RCTResponseSenderBlock) callback)
-{
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    callback(@[]);
-  });
-}
+RCT_EXTERN_METHOD(multiply : (float) a withB : (float) b
+				  withResolver : (RCTPromiseResolveBlock) resolve
+					  withRejecter : (RCTPromiseRejectBlock)reject)
 
-RCT_EXTERN_METHOD(doExpensiveLoop: (double)loopTimes resove: (RCTPromiseResolveBlock)resove reject: (RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(sendTestEvent)
 
 @end

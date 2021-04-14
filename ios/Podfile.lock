@@ -326,6 +326,10 @@ PODS:
     - React-Core
   - RNCMaskedView (0.1.10):
     - React
+  - RNDeviceInfo (8.1.0):
+    - React-Core
+  - RNFS (2.17.0):
+    - React
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNReanimated (2.1.0):
@@ -359,6 +363,14 @@ PODS:
     - Yoga
   - RNScreens (3.0.0):
     - React-Core
+  - RNZipArchive (6.0.2):
+    - React-Core
+    - RNZipArchive/Core (= 6.0.2)
+    - SSZipArchive (= 2.2.3)
+  - RNZipArchive/Core (6.0.2):
+    - React-Core
+    - SSZipArchive (= 2.2.3)
+  - SSZipArchive (2.2.3)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -417,9 +429,12 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCCheckbox (from `../node_modules/@react-native-community/checkbox`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
+  - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNZipArchive (from `../node_modules/react-native-zip-archive`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -435,6 +450,7 @@ SPEC REPOS:
     - FlipperKit
     - libevent
     - OpenSSL-Universal
+    - SSZipArchive
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -502,12 +518,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/checkbox"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
+  RNFS:
+    :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNZipArchive:
+    :path: "../node_modules/react-native-zip-archive"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -555,9 +577,13 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 9b7605e899f9acb2fba33e87952c529731265453
   RNCCheckbox: d1749e6a92178ce5dbc31e63becd1f34f0c76bbd
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
+  RNDeviceInfo: 677a08eaafcfac4e85d2d2aab68a3708ff261c04
+  RNFS: 93d5b5535eb39d98e6b19009faa8fe717f7ea45d
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: b8c8004b43446e3c2709fe64b2b41072f87428ad
   RNScreens: e8e8dd0588b5da0ab57dcca76ab9b2d8987757e0
+  RNZipArchive: 3dd2de5b7f590d79e83270508b78870bf5a54f36
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: 8c8436d4171c87504c648ae23b1d81242bdf3bbf
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

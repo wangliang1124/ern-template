@@ -113,7 +113,7 @@ module.exports = {
     'react/require-default-props': 0,
     'react/forbid-prop-types': 0,
     'react/static-property-placement': 0,
-    'no-plusplus': ['warn', { allowForLoopAfterthoughts: true }],
+    'no-plusplus': 0,
     'no-return-await': 0,
     'import/order': [
       'error',

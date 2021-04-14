@@ -140,5 +140,6 @@ module.exports = {
     'react/destructuring-assignment': 'warn',
     'react/no-unused-prop-types': 1,
     'react/jsx-wrap-multilines': [1, { prop: 'ignore' }],
+    'react/jsx-one-expression-per-line': 0,
   },
 };

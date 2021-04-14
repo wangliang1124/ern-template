@@ -4,6 +4,7 @@ import Gallery from '~/screens/Gallery/Gallery';
 import GalleryPhotoDetail from '~/screens/Gallery/GalleryPhotoDetail';
 import Home from '~/screens/Home';
 import MobxDemo from '~/screens/MobxDemo';
+import NativeModuleDemo from '~/screens/NativeModuleDemo';
 import Performance from '~/screens/Performance';
 import RNFSDemo from '~/screens/RNFS';
 
@@ -35,11 +36,15 @@ export const Screens = {
     name: 'Performance',
     component: Performance,
   },
+  NativeModuleDemo: {
+    name: 'NativeModuleDemo',
+    component: NativeModuleDemo,
+  },
 };
 
 const Stack = createStackNavigator();
 
-const routeNames = ['MobxDemo', 'Gallery', 'RNFSDemo', 'Performance'];
+const routeNames = ['MobxDemo', 'Gallery', 'RNFSDemo', 'Performance', 'NativeModuleDemo'];
 
 export const getRoutes = () =>
   [

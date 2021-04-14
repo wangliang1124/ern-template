@@ -4,6 +4,8 @@ import Gallery from '~/screens/Gallery/Gallery';
 import GalleryPhotoDetail from '~/screens/Gallery/GalleryPhotoDetail';
 import Home from '~/screens/Home';
 import MobxDemo from '~/screens/MobxDemo';
+import Performance from '~/screens/Performance';
+import RNFSDemo from '~/screens/RNFS';
 
 /*
 说明： 在这个项目中所有的导航配置放在这里统一管理，
@@ -25,11 +27,19 @@ export const Screens = {
     component: GalleryPhotoDetail,
     options: { headerShown: false },
   },
+  RNFSDemo: {
+    name: 'RNFSDemo',
+    component: RNFSDemo,
+  },
+  Performance: {
+    name: 'Performance',
+    component: Performance,
+  },
 };
 
 const Stack = createStackNavigator();
 
-const routeNames = ['MobxDemo', 'Gallery'];
+const routeNames = ['MobxDemo', 'Gallery', 'RNFSDemo', 'Performance'];
 
 export const getRoutes = () =>
   [

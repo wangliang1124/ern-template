@@ -194,6 +194,7 @@ const skipWords = [
   'iso',
   'utc',
   'readonly',
+  'utf8',
 
   // names provided by external source code dependencies or standard
   // library
@@ -282,6 +283,9 @@ const skipWords = [
   // proper nouns
   'airbnb',
   'Mobx',
+  'onmail',
+  'OnmailClient',
+  'erntemplate',
 ];
 
 module.exports = skipWords;

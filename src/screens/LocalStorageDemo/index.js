@@ -90,7 +90,7 @@ function LocalStorageDemo() {
               backgroundColor: index % 2 === 1 ? 'azure' : '#eee',
             }}
           >
-            <Text>{`${key} : ${value}`}</Text>
+            <Text style={{ flex: 1 }}>{`${key} : ${value}`}</Text>
             <Button
               title="Remove"
               onPress={() => {

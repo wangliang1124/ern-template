@@ -3,9 +3,11 @@ import React from 'react';
 import Gallery from '~/screens/Gallery/Gallery';
 import GalleryPhotoDetail from '~/screens/Gallery/GalleryPhotoDetail';
 import Home from '~/screens/Home';
-import LocalStorageDemo from '~/screens/LocalStorage';
+import LocalStorageDemo from '~/screens/LocalStorageDemo';
 import MobxDemo from '~/screens/MobxDemo';
 import NativeModuleDemo from '~/screens/NativeModuleDemo';
+import LightDemo from '~/screens/NativeModuleDemo/LightDemo';
+import MapDemo from '~/screens/NativeModuleDemo/MapDemo';
 import Performance from '~/screens/Performance';
 import RNFSDemo from '~/screens/RNFS';
 
@@ -40,6 +42,14 @@ export const Screens = {
   NativeModuleDemo: {
     name: 'NativeModuleDemo',
     component: NativeModuleDemo,
+  },
+  LightDemo: {
+    name: 'LightDemo',
+    component: LightDemo,
+  },
+  MapDemo: {
+    name: 'MapDemo',
+    component: MapDemo,
   },
   LocalStorageDemo: {
     name: 'LocalStorageDemo',

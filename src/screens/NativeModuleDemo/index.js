@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Button, StyleSheet, NativeModules, NativeEventEmitter } from 'react-native';
+import Router from '~/utils/router';
 
 const { ERNModule, CppModule } = NativeModules;
 const { multiply, sendTestEvent } = ERNModule;
@@ -36,6 +37,18 @@ function NativeModuleDemo() {
         title="Test Native Send Event"
         onPress={() => {
           sendTestEvent();
+        }}
+      />
+      <Button
+        title="Light Demo"
+        onPress={() => {
+          Router.push('LightDemo');
+        }}
+      />
+      <Button
+        title="Map Demo"
+        onPress={() => {
+          Router.push('MapDemo');
         }}
       />
     </View>

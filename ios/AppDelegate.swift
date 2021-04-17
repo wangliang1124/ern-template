@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import React
-
 //
 // import FlipperKit
 // import FlipperKitLayoutPlugin
@@ -32,50 +30,38 @@ import React
 // #endif
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         // #if FB_SONARKIT_ENABLED
 //        InitializeFlipper(application)
         // #endif
-      
-        var rootView = UIView(frame: .zero)
-        if let bridge = RCTBridge(delegate: self, launchOptions: launchOptions) {
-            rootView = RCTRootView(
-                bridge: bridge,
-                moduleName: "ERNTemplate",
-                initialProperties: nil)
 
-            if #available(iOS 13.0, *) {
-                rootView.backgroundColor = UIColor.systemBackground
-            } else {
-                rootView.backgroundColor = UIColor.white
-            }
-        }
+//         window = UIWindow(frame: UIScreen.main.bounds)
+//         let navigationController = UINavigationController(rootViewController: MainViewController())
+//         window?.rootViewController = navigationController
+//         window?.makeKeyAndVisible()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController = UIViewController()
-        rootViewController.view = rootView
-        window?.rootViewController = rootViewController
+        let navigationController = UINavigationController(rootViewController: RCTRootViewManager.rctRootViewController())
+        navigationController.setNavigationBarHidden(true, animated: true)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            RCTManager.sendEvent(event: .AppOpened)
+        // 假如 app 一开始启动的 native 页面，没有启动 RN 页面，但是又需要预先初始化 RCTBridge 以加速 RN 包的加载速度，
+        // 可以在这里预先初始化 RCTBridge, 当然实际上，这里并不是唯一会初始化 RCTBridge 的地方
+        // 在 RN 中调用原生模块的时候也会触发 RCTBridge 的建立
+        // RCTRootViewManager.initBridge()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
         }
-      
+
         return true
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         RCTManager.sendEvent(event: .AppOpened)
-    }
-
-    func sourceURL(for bridge: RCTBridge?) -> URL? {
-        #if DEBUG
-            return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
-        #else
-            return Bundle.main.url(forResource: "main", withExtension: "jsbundle")
-        #endif
+        EventManager.sendEvent(event: .AppOpened)
     }
 }

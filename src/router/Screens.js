@@ -54,10 +54,15 @@ export const Screens = {
   },
 };
 
-export function getRoutes(routeNames = []) {
-  const routes = [];
-  for (const key of routeNames) {
-    routes.push(Screens[key]);
-  }
-  return routes;
-}
+export const GalleryScreenConfigs = {
+  Gallery: {
+    name: 'Gallery',
+    component: Gallery,
+    options: { headerShown: false },
+  },
+  GalleryPhotoDetail: {
+    name: 'GalleryPhotoDetail',
+    component: GalleryPhotoDetail,
+    options: { headerShown: false },
+  },
+};

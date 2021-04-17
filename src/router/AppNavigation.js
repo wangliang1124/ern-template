@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import Home from '~/screens/Home';
 import { onNavigationReady, onNavStateChange, updateRefs } from '~/utils/router';
-import { Screens } from './Screens';
+import { defaultOptions, Screens } from './Screens';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +16,12 @@ const StackNavigator = () => (
     </Stack.Screen>
 
     {Object.values(Screens).map((screen) => (
-      <Stack.Screen name={screen.name} component={screen.component} options={screen.options} key={screen.name} />
+      <Stack.Screen
+        name={screen.name}
+        component={screen.component}
+        options={{ ...defaultOptions, ...screen.options }}
+        key={screen.name}
+      />
     ))}
   </Stack.Navigator>
 );

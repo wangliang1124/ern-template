@@ -1,9 +1,18 @@
 import { useRoute } from '@react-navigation/native';
 import React from 'react';
 
-export const navigationRef = React.createRef(null);
 export const isReadyRef = React.createRef(false);
 export const navStateRef = React.createRef(null);
+export const navigationRefStack = [];
+
+export function updateRefs(ref) {
+  console.log('-------- update ref --------', ref);
+  if (ref) {
+    navigationRefStack.push(ref);
+  } else {
+    navigationRefStack.pop();
+  }
+}
 
 export function onNavigationReady() {
   isReadyRef.current = true;
@@ -14,8 +23,9 @@ export function onNavStateChange(newState) {
 }
 
 function navigate(routeName, params) {
-  // console.log('navigationRef.current---', navigationRef.current);
-  if (isReadyRef.current && navigationRef.current) {
+  const navigationRef = navigationRefStack[navigationRefStack.length - 1];
+  console.log('------- navigation push -------', routeName, params, navigationRef.getRootState());
+  if (isReadyRef.current && navigationRef) {
     // Perform navigation if the app has mounted
     let name;
     if (typeof routeName === 'object' && typeof routeName.name === 'string') {
@@ -25,7 +35,7 @@ function navigate(routeName, params) {
     } else {
       console.warn('routeName must be string or object');
     }
-    navigationRef.current.navigate(name, params);
+    navigationRef.navigate(name, params);
   } else {
     // You can decide what to do if the app hasn't mounted
     // You can ignore this, or add these actions to a queue you can call later
@@ -33,9 +43,12 @@ function navigate(routeName, params) {
   }
 }
 
-function goBack(routeName, params) {
-  if (isReadyRef.current && navigationRef.current) {
-    navigationRef.current.goBack(routeName, params);
+function goBack() {
+  const navigationRef = navigationRefStack[navigationRefStack.length - 1];
+  console.log('------- navigation pop -------', navigationRef.getRootState());
+
+  if (isReadyRef.current && navigationRef) {
+    navigationRef.goBack();
   }
 }
 

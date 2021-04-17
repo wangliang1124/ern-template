@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
-import { Screens } from '~/router';
+import { Screens } from '~/router/Screens';
 import Router from '~/utils/router';
 
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);

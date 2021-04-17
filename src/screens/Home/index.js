@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, Button } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { gotoNative } from '~/utils/native';
 
 export default function Home({ routes, navigation: { navigate } }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {routes.map((routeName) => (
         <Button
           onPress={() => {
@@ -13,7 +15,13 @@ export default function Home({ routes, navigation: { navigate } }) {
           key={routeName}
         />
       ))}
-    </View>
+      <Button
+        title="Go to Native Screen"
+        onPress={() => {
+          gotoNative();
+        }}
+      />
+    </SafeAreaView>
   );
 }
 

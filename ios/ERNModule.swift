@@ -8,22 +8,7 @@
 import Foundation
 
 @objc(ERNModule)
-class ERNModule: RCTEventEmitter {
-    
-
-    override init() {
-        super.init()
-        RCTManager.ernModule = self
-    }
-
-    override class func requiresMainQueueSetup() -> Bool {
-        return false
-    }
-
-    override func supportedEvents() -> [String] {
-        return RCTEvents.all
-    }
-
+class ERNModule: NSObject {
     @objc(doExpensiveLoop:withResolver:withRejecter:)
     func doExpensiveLoop(loopTimes: Double, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.global(qos: .default).async {
@@ -42,6 +27,24 @@ class ERNModule: RCTEventEmitter {
 
     @objc(sendTestEvent)
     func sendTestEvent() {
-        RCTManager.sendEvent(event: .EventReminder, body: ["testKey": 42])
+        EventManager.sendEvent(event: .EventReminder, body: ["testKey": 42])
+    }
+
+    @objc(popScreen)
+    func popScreen() {
+        DispatchQueue.main.async {
+            RCTRootViewManager.popScreen()
+        }
+    }
+
+    @objc(gotoNative)
+    func gotoNative() {
+        DispatchQueue.main.async {
+            if let rctVc = RCTRootViewManager.rootViewController {
+                let mainVc = MainViewController()
+                rctVc.navigationController?.pushViewController(mainVc, animated: true)
+                rctVc.navigationController?.setNavigationBarHidden(false, animated: true)
+            }
+        }
     }
 }

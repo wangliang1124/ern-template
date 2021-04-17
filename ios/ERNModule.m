@@ -9,7 +9,19 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 
-@interface RCT_EXTERN_MODULE (ERNModule, NSObject)
+//
+// MARK:- EventManager Module
+//
+
+@interface RCT_EXTERN_MODULE(EventManager, NSObject)
+
+@end
+
+//
+// MARK:- ERNModule Module
+//
+
+@interface RCT_EXTERN_MODULE(ERNModule, NSObject)
 
 RCT_EXTERN_METHOD(doExpensiveLoop : (double)loopTimes
 			  withResolver : (RCTPromiseResolveBlock) resove
@@ -21,4 +33,9 @@ RCT_EXTERN_METHOD(multiply : (float) a withB : (float) b
 
 RCT_EXTERN_METHOD(sendTestEvent)
 
+RCT_EXTERN_METHOD(popScreen)
+
+RCT_EXTERN_METHOD(gotoNative)
+
 @end
+

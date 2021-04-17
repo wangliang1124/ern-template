@@ -9,6 +9,11 @@
 
 @interface RCT_EXTERN_MODULE(Light, RCTViewManager)
 
++ (BOOL)requiresMainQueueSetup
+{
+  return YES;
+}
+
 RCT_EXPORT_VIEW_PROPERTY(isOn, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(onStatusChange, RCTDirectEventBlock)
 

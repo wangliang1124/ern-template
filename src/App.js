@@ -1,16 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import { NativeModules, NativeEventEmitter } from 'react-native';
 import { LocalStorageKeys } from './constants/LocalStorageKeys';
 import StackNavigator from './router';
+import NativeEventManager from './utils/event';
 import LocalStorage from './utils/LocalStorage';
 import { navigationRef, onNavigationReady, onNavStateChange } from './utils/router';
 
-const { ERNModule } = NativeModules;
-
-function App() {
+function App(props) {
+  console.log('----- app render ----', props);
   useEffect(() => {
-    const subscription = new NativeEventEmitter(ERNModule).addListener('AppOpened', async (res) => {
+    const subscription = NativeEventManager.addListener('AppOpened', async (res) => {
       console.log('----- addListener AppOpened ----', res);
       let count = (await LocalStorage.get(LocalStorageKeys.AppOpenCount)) || 1;
       count += 1;

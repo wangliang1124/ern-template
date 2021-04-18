@@ -7,6 +7,10 @@ import LightDemo from '~/screens/NativeModuleDemo/LightDemo';
 import MapDemo from '~/screens/NativeModuleDemo/MapDemo';
 import Performance from '~/screens/Performance';
 import RNFSDemo from '~/screens/RNFS';
+import SafeAreaDemo from '~/screens/SafeAreaDemo';
+import FullPage from '~/screens/SafeAreaDemo/FullPage';
+import NoSafeArea from '~/screens/SafeAreaDemo/NoSafeArea';
+import SafeArea from '~/screens/SafeAreaDemo/SafeArea';
 
 /*
 说明： 在这个项目中所有的导航配置放在这里统一管理，
@@ -54,6 +58,24 @@ export const Screens = {
   LocalStorageDemo: {
     name: 'LocalStorageDemo',
     component: LocalStorageDemo,
+  },
+  SafeAreaDemo: {
+    name: 'SafeAreaDemo',
+    component: SafeAreaDemo,
+  },
+  NoSafeArea: {
+    name: 'NoSafeArea',
+    component: NoSafeArea,
+    options: { headerShown: false },
+  },
+  FullPage: {
+    name: 'FullPage',
+    component: FullPage,
+    options: { headerShown: false },
+  },
+  SafeArea: {
+    name: 'SafeArea',
+    component: SafeArea,
   },
 };
 

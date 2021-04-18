@@ -1,14 +1,23 @@
 import { observer } from 'mobx-react';
 import React, { Component } from 'react';
-import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import galleryStore from '~/stores/galleryStore';
+import { getCurrentOptions } from '~/utils/router';
 import GalleryItem from './components/GalleryItem';
 import GalleryListFooter from './components/GalleryListFooter';
 
 class Gallery extends Component {
+  state = { headerShown: true };
+
   componentDidMount() {
     galleryStore.resetStore();
     galleryStore.fetchImages();
+    getCurrentOptions().then(({ headerShown }) => {
+      this.setState({
+        headerShown,
+      });
+    });
   }
 
   componentWillUnmount() {
@@ -16,11 +25,14 @@ class Gallery extends Component {
   }
 
   render() {
+    const { headerShown } = this.state;
     const { images, isRefreshing, refresh, fetchMore, completed } = galleryStore;
-    // console.log('----render----');
 
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView
+        edges={headerShown ? ['bottom', 'left', 'right'] : ['top', 'bottom', 'left', 'right']}
+        style={styles.container}
+      >
         <FlatList
           data={images.slice()}
           numColumns={2}

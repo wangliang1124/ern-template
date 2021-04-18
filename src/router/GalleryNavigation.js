@@ -8,14 +8,9 @@ const Stack = createStackNavigator();
 
 const GalleryNavigation = () => (
   <NavigationContainer ref={updateRefs} onReady={onNavigationReady} onStateChange={onNavStateChange}>
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={defaultOptions}>
       {Object.values(GalleryScreenConfigs).map((screen) => (
-        <Stack.Screen
-          name={screen.name}
-          component={screen.component}
-          options={{ ...defaultOptions, ...screen.options }}
-          key={screen.name}
-        />
+        <Stack.Screen name={screen.name} component={screen.component} options={screen.options} key={screen.name} />
       ))}
     </Stack.Navigator>
   </NavigationContainer>

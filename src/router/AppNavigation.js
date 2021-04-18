@@ -7,21 +7,24 @@ import { defaultOptions, Screens } from './Screens';
 
 const Stack = createStackNavigator();
 
-const routeNames = ['MobxDemo', 'Gallery', 'RNFSDemo', 'Performance', 'NativeModuleDemo', 'LocalStorageDemo'];
+const routeNames = [
+  'MobxDemo',
+  'Gallery',
+  'RNFSDemo',
+  'Performance',
+  'NativeModuleDemo',
+  'LocalStorageDemo',
+  'SafeAreaDemo',
+];
 
 const StackNavigator = () => (
-  <Stack.Navigator>
+  <Stack.Navigator screenOptions={defaultOptions}>
     <Stack.Screen name="Home" key="Home" options={{ headerShown: false }}>
       {(props) => <Home {...props} routes={routeNames} />}
     </Stack.Screen>
 
     {Object.values(Screens).map((screen) => (
-      <Stack.Screen
-        name={screen.name}
-        component={screen.component}
-        options={{ ...defaultOptions, ...screen.options }}
-        key={screen.name}
-      />
+      <Stack.Screen name={screen.name} component={screen.component} options={screen.options} key={screen.name} />
     ))}
   </Stack.Navigator>
 );

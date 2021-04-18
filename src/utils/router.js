@@ -22,6 +22,15 @@ export function onNavStateChange(newState) {
   navStateRef.current = newState;
 }
 
+export function getCurrentOptions() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const navigationRef = navigationRefStack[navigationRefStack.length - 1];
+      resolve(navigationRef.getCurrentOptions() || {});
+    });
+  });
+}
+
 function navigate(routeName, params) {
   const navigationRef = navigationRefStack[navigationRefStack.length - 1];
   console.log('------- navigation push -------', routeName, params, navigationRef.getRootState());
@@ -56,8 +65,9 @@ export function getRouteParams(self) {
   //   console.log('navStateRef.current--', navStateRef.current);
   //   const { index, routes } = navStateRef.current;
   //   return routes[index]?.params;
-  return self ? self.props.route?.params : useRoute()?.params;
-
+  //   return self ? self.props.route?.params : useRoute()?.params;
+  const navigationRef = navigationRefStack[navigationRefStack.length - 1];
+  return navigationRef.getCurrentRoute()?.params;
   //   try {
   //     if (props) {
   //       return props.route?.params;

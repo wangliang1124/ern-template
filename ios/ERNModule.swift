@@ -8,7 +8,19 @@
 import Foundation
 
 @objc(ERNModule)
-class ERNModule: NSObject {
+class ERNModule: NSObject, RCTBridgeModule {
+    static func moduleName() -> String! {
+        return "ERNModule"
+    }
+
+    static func requiresMainQueueSetup() -> Bool {
+        return false
+    }
+
+    func constantsToExport() -> [AnyHashable: Any]! {
+      return ["constantKey": "hello, react native", "appVersion": 0.1, "environment": "dev"]
+    }
+
     @objc(doExpensiveLoop:withResolver:withRejecter:)
     func doExpensiveLoop(loopTimes: Double, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.global(qos: .default).async {

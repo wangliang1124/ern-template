@@ -28,7 +28,7 @@ module.exports = {
     'react/no-string-refs': 0,
     'react/no-deprecated': 0,
     semi: ['warn', 'always'],
-    'react-native/no-unused-styles': 2,
+    'react-native/no-unused-styles': 0,
     'react-native/split-platform-components': 0,
     'react-native/no-inline-styles': 0,
     'react-native/no-color-literals': 0,

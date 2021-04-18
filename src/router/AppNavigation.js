@@ -1,7 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
+import { useColorScheme } from 'react-native';
 import Home from '~/screens/Home';
+import { ThemeDark, ThemeLight } from '~/styles/Theme';
 import { onNavigationReady, onNavStateChange, updateRefs } from '~/utils/router';
 import { defaultOptions, Screens } from './Screens';
 
@@ -29,11 +31,19 @@ const StackNavigator = () => (
   </Stack.Navigator>
 );
 
-const AppNavigation = () => (
-  <NavigationContainer ref={updateRefs} onReady={onNavigationReady} onStateChange={onNavStateChange}>
-    <StackNavigator />
-  </NavigationContainer>
-);
+const AppNavigation = () => {
+  const scheme = useColorScheme();
+  return (
+    <NavigationContainer
+      theme={scheme === 'dark' ? ThemeDark : ThemeLight}
+      ref={updateRefs}
+      onReady={onNavigationReady}
+      onStateChange={onNavStateChange}
+    >
+      <StackNavigator />
+    </NavigationContainer>
+  );
+};
 
 export default AppNavigation;
 

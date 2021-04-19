@@ -1,8 +1,10 @@
+import { observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { Button, Image, Text, View } from 'react-native';
+import { useTheme } from '~/styles/Theme';
 import Router, { getRouteParams } from '~/utils/router';
 
-export default class GalleryPhotoDetail extends Component {
+class GalleryPhotoDetail extends Component {
   componentDidMount() {
     // getRouteParams();
   }
@@ -13,9 +15,10 @@ export default class GalleryPhotoDetail extends Component {
   //   }
 
   render() {
+    const { colors } = useTheme();
     const {
       image: { largeImageURL, user, favorites, likes },
-    } = getRouteParams(this);
+    } = getRouteParams();
 
     return (
       <View style={{ flex: 1 }}>
@@ -26,15 +29,17 @@ export default class GalleryPhotoDetail extends Component {
         />
 
         <View style={{ flex: 1, alignItems: 'center', paddingTop: 20 }}>
-          <Text>{`Author:${user}`}</Text>
-          <Text>{`Likes:${likes}`}</Text>
-          <Text>{`Favorites:${favorites}`}</Text>
+          <Text style={{ color: colors.textDark }}>{`Author:${user}`}</Text>
+          <Text style={{ color: colors.textDark }}>{`Likes:${likes}`}</Text>
+          <Text style={{ color: colors.textDark }}>{`Favorites:${favorites}`}</Text>
           <Button title="Go Back" onPress={Router.pop} />
         </View>
       </View>
     );
   }
 }
+
+export default observer(GalleryPhotoDetail);
 
 // export default function GalleryPhotoDetail(props) {
 //   const {

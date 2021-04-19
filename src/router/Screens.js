@@ -17,9 +17,10 @@ import SafeArea from '~/screens/SafeAreaDemo/SafeArea';
 但是 donut 项目需要多个导航栈，并且分散在各个地方。
 我认为这两种方式都有合理之处。但 donut 不但分散，很多情况下还和业务逻辑耦合在一起，结构层次不过清晰
 */
-export const defaultOptions = {
+export const defaultOptions = ({ navigation, route }) => ({
   headerShown: true,
-};
+  headerBackTitleVisible: false,
+});
 
 export const Screens = {
   MobxDemo: {

@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react';
+import { useColorScheme } from 'react-native';
 import { LocalStorageKeys } from './constants/LocalStorageKeys';
 import AppNavigation from './router/AppNavigation';
+import commonStore from './stores/commonStore';
+import { DarkTheme, LightTheme, useTheme } from './styles/Theme';
 import NativeEventManager from './utils/event';
 import LocalStorage from './utils/LocalStorage';
 
 function App(props) {
   console.log('----- app render ----', props);
+
   useEffect(() => {
     const subscription = NativeEventManager.addListener('AppOpened', async (res) => {
       console.log('----- native event AppOpened ----', res);
@@ -16,7 +20,12 @@ function App(props) {
     return () => subscription.remove();
   }, []);
 
-  return <AppNavigation />;
+  const darkMode = useColorScheme() === 'dark';
+  useEffect(() => {
+    commonStore.changeTheme(darkMode);
+  }, [darkMode]);
+
+  return <AppNavigation theme={darkMode ? DarkTheme : LightTheme} />;
 }
 
 export default App;

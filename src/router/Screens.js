@@ -1,5 +1,6 @@
 import Gallery from '~/screens/Gallery/Gallery';
 import GalleryPhotoDetail from '~/screens/Gallery/GalleryPhotoDetail';
+import LandscapeTablet from '~/screens/LandscapeTablet';
 import LocalStorageDemo from '~/screens/LocalStorageDemo';
 import MobxDemo from '~/screens/MobxDemo';
 import NativeModuleDemo from '~/screens/NativeModuleDemo';
@@ -77,6 +78,10 @@ export const Screens = {
   SafeArea: {
     name: 'SafeArea',
     component: SafeArea,
+  },
+  LandscapeTablet: {
+    name: 'LandscapeTablet',
+    component: LandscapeTablet,
   },
 };
 

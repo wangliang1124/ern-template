@@ -1,3 +1,5 @@
+import { Dimensions } from 'react-native';
+
 export function getRandomColor() {
   return `#${`00000${((Math.random() * 0x1000000) << 0).toString(16)}`.substr(-6)}`;
 }
@@ -23,4 +25,9 @@ export function formatParams(data) {
     if (data.hasOwnProperty(key)) arr.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`);
   }
   return arr.join('&');
+}
+
+export function isLandscape() {
+  const { height, width } = Dimensions.get('screen');
+  return width >= height;
 }

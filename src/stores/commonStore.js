@@ -1,6 +1,7 @@
 import { computed, makeAutoObservable, runInAction } from 'mobx';
 import { Dimensions } from 'react-native';
-import { isLandscape, isTablet } from 'react-native-device-info';
+import { isTablet } from 'react-native-device-info';
+import { isLandscape } from '~/utils';
 
 class CommonStore {
   constructor() {
@@ -20,7 +21,9 @@ class CommonStore {
   };
 
   dimensionChange = () => {
-    this.isLandscape = isLandscape();
+    runInAction(() => {
+      this.isLandscape = isLandscape();
+    });
   };
 }
 

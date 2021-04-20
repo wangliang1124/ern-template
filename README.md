@@ -2,15 +2,17 @@
 
 Edison React Native Template
 
+这个项目的目的是总结 donut 在实践过程中遇到的一些问题，对于常见的应用场景总结分析，并试图提炼出一套规范化的方法，便于以后 RN 项目的快速高效的开发，同时可以更进一步的去完善 donut 中不合理的的地方。
+
+另外，这个项目中可以探索关于性能优化、打包编译、常用第三方库的最佳使用方式等等
+
 环境搭建 https://reactnative.cn/docs/environment-setup
 
 关于包管理工具，npm 和 yarn 都是很优秀的包管理工具，但相比 npm， 更推荐使用 yarn，使用 yarn 安装包的时候似乎更快一点。
 
 ## lint-staged
 
-The fastest way to start using lint-staged is to run following command in your terminal:
-
-`npx mrm lint-staged`
+The fastest way to start using lint-staged is to run following command in your terminal: `npx mrm lint-staged`
 
 It will install and configure husky and lint-staged depending on code quality tools from package.json dependencies so please make sure you install (npm install --save-dev) and configure all code quality tools like Prettier, ESlint prior that.
 
@@ -49,6 +51,12 @@ https://docs.swmansion.com/react-native-gesture-handler/docs/
 
 注：donut 项目中的 react-native-platform-touchable is no longer maintained
 推荐 https://docs.swmansion.com/react-native-gesture-handler/docs/api/components/buttons
+
+### 文件存取
+
+react-native-fs
+
+用于本地文件的创建，写入，上传，下载
 
 ### 数据库
 
@@ -106,8 +114,6 @@ TODO 添加例子
 
 - 入口组件一般以写成 class，但应视情况而定，如果这个页面不涉及状态管理，也许写成 function 的形式更合理。
 - 尽量使用 function 组件，可控、无副作用
-
-### 统一处理屏幕方向事件
 
 ### import 书写顺序
 
@@ -265,49 +271,89 @@ components/
 - `chore` 其他改动。比如一些注释修改或者文件清理。不影响 src 和 test 代码文件的，都可以放在这里
 - `revert` 回滚了一些前面的代码
 
-## 最佳实践
+## 最佳实践 Demo
 
-这个项目中可以探索关于性能优化、打包编译、第三方库的最佳使用方式等等
+### Mobx Demo
 
-UI 适配最佳实践
+通过一个 todo list 介绍 mobx 的基本用法
 
-React Navigation 最佳实践
+### Gallery
 
-- 怎样传递参数
-- 动态设置导航
-- 导航和组件通信
-- ...
+Fetch 网络数据、处理分页请求，react navigation 的用法
 
-Mobx 最佳实践
+### RNFS Demo
 
-Realm 最佳实践
+文件的创建、写入、读取、上传
 
-处理 Warning: Can't perform a React state update on an unmounted component
-...
+### Performance
+
+演示耗时操作对 UI 界面的影响
+
+在实际的使用场景中应该很少有特别耗时的操作，大部分情况下用户是无感知的，在 RN 中一般会把耗时操作放在 `InteractionManager.runAfterInteractions` 中，这样不会影响到动画的执行。
+
+其他耗时操作需要具体情况具体分析，无法用一个统一的方案去处理所有的所以的耗时操作。
+
+### 本地存储 LocalStorageDemo
+
+简单封装了 @react-native-async-storage/async-storage 的方法，使得 value 可以是任意可以 JSON 化的类型
+
+### Safearea Demo
+
+大部分情况下 RN 的 SafeAreaView 已经够用了，但有些特殊情况需要处理，因此更好的方式是使用 react-native-safe-area-context 库
+
+### Dark Mode
+
+RN 已经支持 Dark 模式的的检测，不需要原生的支持了，配合 React Navigtion 和 Mobx 可以做到相对方便的处理 Dark 模式
+注：目前 donut 的 Dark 模式并不完美，需要手动刷新
+
+### 统一处理屏幕方向事件 LandscapeTablet
+
+利用 Mobx 统一处理 Dimension change 事件
+
+**另外，还有一个可能更优雅的方案：建立一个继承自 React.Componet 的类，来统一处理导航、颜色主题，方向处理、安卓后退键、组件卸载后更新问题等等**
+
+### 和原生交互
+
+- 原生跳转 RN 页面
+- 原生 present RN 页面
+- 原生嵌入 RN 页面
+- 原生发送事件给 RN
+- RN 跳转原生页面
+- RN 嵌入原生原生 UI 模块
+- RN 调用原生方法
 
 ## TODO
 
-- 跟 Native 无数据交互
-  - 单纯静态展示页面。
-  - 直接从网络获取数据。
-- RN 单向从 Native 获取数据
-  - 启动的时候 Native 通过参数传递变量
-  - RN 通过 API 读取 Native 的数据
-- RN 调用 Native
-  - 不回调，可以做成同回调一次一样，因为 RN 调用 Native 本身都是异步的。
-  - 回调一次，可以使用 RN 原生的 Callback
-  - 回调多次，原生不支持，必须使用 Event 方式。
-- Native 主动调用 RN
-  - 通过 Event Emit RN
-  - 通过 Headless Service（Android）。
-- RN 页面需要存储数据
-  - 存储数据库
-  - 存储 Preference
-- RN 底层对应的 Native Page
-  - Full Page，全页面都是 RN
-  - 有本地导航栏的页面，导航栏风格保持跟 Native 一致
-  - Dialog 风格
-- RN 页面跳转
+数据库
 
-  - 纯粹在 RN 层面跳转
-  - 依托 Native 页面导航
+推送通知
+
+错误监控
+
+切换后台
+
+本地相册：选择和裁剪和保存图片
+
+可滑动 Tab
+
+Swiper(用于 Onboarding)
+
+侧滑按钮(邮件列表)
+
+3D Touch
+
+视频播放
+
+语音播放
+
+文件预览（附件）
+
+Lottie 动画
+
+内购
+
+Webview
+
+分享
+
+...

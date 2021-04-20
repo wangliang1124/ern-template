@@ -64,4 +64,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         EventManager.sendEvent(event: .AppOpened)
     }
+
+    // 后台任务标识
+//    var backgroundTask: UIBackgroundTaskIdentifier!
+//
+//    func applicationDidEnterBackground(_ application: UIApplication) {
+//        DispatchQueue.global().async {
+//            // 如果已存在后台任务，先将其设为完成
+//            if self.backgroundTask != nil {
+//                application.endBackgroundTask(self.backgroundTask)
+//                self.backgroundTask = UIBackgroundTaskIdentifier.invalid
+//            }
+//        }
+//
+//        // 如果要后台运行
+//        backgroundTask = application.beginBackgroundTask(expirationHandler: {
+//            () -> Void in
+//            // 如果没有调用endBackgroundTask，时间耗尽时应用程序将被终止
+//            application.endBackgroundTask(self.backgroundTask)
+//            self.backgroundTask = UIBackgroundTaskIdentifier.invalid
+//        })
+//    }
 }

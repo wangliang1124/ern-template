@@ -18,7 +18,7 @@ class ERNModule: NSObject, RCTBridgeModule {
     }
 
     func constantsToExport() -> [AnyHashable: Any]! {
-      return ["constantKey": "hello, react native", "appVersion": 0.1, "environment": "dev"]
+        return ["constantKey": "hello, react native", "appVersion": 0.1, "environment": "dev"]
     }
 
     @objc(doExpensiveLoop:withResolver:withRejecter:)
@@ -57,6 +57,17 @@ class ERNModule: NSObject, RCTBridgeModule {
                 rctVc.navigationController?.pushViewController(mainVc, animated: true)
                 rctVc.navigationController?.setNavigationBarHidden(false, animated: true)
             }
+        }
+    }
+
+    @objc(startNativeTimer)
+    func startNativeTimer() {
+        var count = 0
+        SwiftTimer.startTimer {
+            print("-- Native Timer running --")
+            count += 1
+
+            EventManager.sendEvent(event: .TimerCount, body: ["count": count])
         }
     }
 }

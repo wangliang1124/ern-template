@@ -10,6 +10,7 @@ import Foundation
 enum RCTEvents: String, CaseIterable {
     case AppOpened
     case EventReminder
+    case TimerCount
 
     static var all: [String] {
         return allCases.map({ $0.rawValue })

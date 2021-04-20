@@ -37,5 +37,7 @@ RCT_EXTERN_METHOD(popScreen)
 
 RCT_EXTERN_METHOD(gotoNative)
 
+RCT_EXTERN_METHOD(startNativeTimer)
+
 @end
 

@@ -94,8 +94,6 @@ react-native-fs
 - 一个文件只写一个 React 组件
 - 组件名与文件名保持一致
 
-TODO 添加例子
-
 ## 编码规范
 
 ### Airbnb JavaScript Style Guide
@@ -104,9 +102,9 @@ TODO 添加例子
 
 > [https://github.com/airbnb/javascript/tree/master/react](https://github.com/airbnb/javascript/tree/master/react)
 
-### React render
+### React render（class 组件）
 
-- 不要写大量的处理逻辑，影响代码可读性和性能
+- return 之前不要超过 15 行的处理逻辑，太多会影响代码可读性和性能
 - 不要试图把整个页面的 UI 放在一个 render 里完成，可以写成小组件或者使用子 render
 - 尽量不要使用三元表达式，即使使用也不要嵌套
 
@@ -114,6 +112,7 @@ TODO 添加例子
 
 - 入口组件一般以写成 class，但应视情况而定，如果这个页面不涉及状态管理，也许写成 function 的形式更合理。
 - 尽量使用 function 组件，可控、无副作用
+- 如果涉及过多的异步处理和状态处理，推荐使用 Class 组件
 
 ### import 书写顺序
 
@@ -145,7 +144,7 @@ import log = console.log;
 
 在使用中不用关心这个顺序， eslint 可以帮我们自动修复。
 
-### React 类组件书写顺序
+### React 类组件书写顺序（推荐）
 
 1. optional `static` methods
 1. `constructor`

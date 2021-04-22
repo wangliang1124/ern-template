@@ -55,14 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // RCTRootViewManager.initBridge()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            EventManager.sendEvent(event: .AppOpened)
+            ERNNativeEventManager.sendEvent(event: .AppOpened)
         }
 
         return true
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        EventManager.sendEvent(event: .AppOpened)
+        ERNNativeEventManager.sendEvent(event: .AppOpened)
     }
 
     // 后台任务标识

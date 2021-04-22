@@ -3,7 +3,7 @@ import { View, Button, ActivityIndicator, NativeModules, Text, StyleSheet } from
 import NativeEventManager from '~/utils/event';
 import { startNativeTimer } from '~/utils/native';
 
-const { ERNModule } = NativeModules;
+const { ERNNative } = NativeModules;
 
 const loopTimes = 10e9;
 
@@ -55,7 +55,7 @@ function Performance() {
           title="Test Expensive Loop Native"
           onPress={() => {
             setAnimating(true);
-            ERNModule.doExpensiveLoop(loopTimes).then(() => {
+            ERNNative.doExpensiveLoop(loopTimes).then(() => {
               setAnimating(false);
               console.log('--- end native----');
             });

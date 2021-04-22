@@ -1,7 +1,7 @@
 import { NativeModules, NativeEventEmitter } from 'react-native';
 
-const { EventManager } = NativeModules;
+const { ERNNativeEventManager } = NativeModules;
 
-const NativeEventManager = new NativeEventEmitter(EventManager);
+const ERNEventManager = new NativeEventEmitter(ERNNativeEventManager);
 
-export default NativeEventManager;
+export default ERNEventManager;

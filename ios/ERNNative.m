@@ -1,5 +1,5 @@
 //
-//  ERNModule.m
+//  ERNNative.m
 //  ERNTemplate
 //
 //  Created by 王亮 on 2021/4/13.
@@ -13,15 +13,15 @@
 // MARK:- EventManager Module
 //
 
-@interface RCT_EXTERN_MODULE(EventManager, NSObject)
+@interface RCT_EXTERN_MODULE(ERNNativeEventManager, NSObject)
 
 @end
 
 //
-// MARK:- ERNModule Module
+// MARK:- ERNNative Module
 //
 
-@interface RCT_EXTERN_MODULE(ERNModule, NSObject)
+@interface RCT_EXTERN_MODULE(ERNNative, NSObject)
 
 RCT_EXTERN_METHOD(doExpensiveLoop : (double)loopTimes
 			  withResolver : (RCTPromiseResolveBlock) resove

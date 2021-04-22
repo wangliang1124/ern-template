@@ -1,9 +1,9 @@
 import { NativeModules } from 'react-native';
 
-const { ERNModule } = NativeModules;
+const { ERNNative } = NativeModules;
 
-export const { gotoNative, popScreen, startNativeTimer } = ERNModule;
+export const { gotoNative, popScreen, startNativeTimer } = ERNNative;
 
-export const { constantKey, appVersion, environment } = ERNModule;
+export const { constantKey, appVersion, environment } = ERNNative;
 
 // console.log('----- constants -----', constantKey, appVersion, environment);

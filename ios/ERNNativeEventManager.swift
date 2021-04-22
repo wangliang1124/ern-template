@@ -8,15 +8,15 @@
 import Foundation
 import React
 
-@objc(EventManager)
-class EventManager: RCTEventEmitter {
-    private static var instance: EventManager?
+@objc(ERNNativeEventManager)
+class ERNNativeEventManager: RCTEventEmitter {
+    private static var instance: ERNNativeEventManager?
 
-    static func getInstance() -> EventManager {
+    static func getInstance() -> ERNNativeEventManager {
         if let _instance = instance {
             return _instance
         }
-        return EventManager()
+        return ERNNativeEventManager()
     }
 
     override init() {

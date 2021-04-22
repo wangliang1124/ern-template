@@ -1,5 +1,5 @@
 //
-//  ERNModule.swift
+//  ERNNative.swift
 //  ERNTemplate
 //
 //  Created by 王亮 on 2021/4/13.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-@objc(ERNModule)
-class ERNModule: NSObject, RCTBridgeModule {
+@objc(ERNNative)
+class ERNNative: NSObject, RCTBridgeModule {
     static func moduleName() -> String! {
-        return "ERNModule"
+        return "ERNNative"
     }
 
     static func requiresMainQueueSetup() -> Bool {
@@ -39,7 +39,7 @@ class ERNModule: NSObject, RCTBridgeModule {
 
     @objc(sendTestEvent)
     func sendTestEvent() {
-        EventManager.sendEvent(event: .EventReminder, body: ["testKey": 42])
+        ERNNativeEventManager.sendEvent(event: .EventReminder, body: ["testKey": 42])
     }
 
     @objc(popScreen)
@@ -67,7 +67,7 @@ class ERNModule: NSObject, RCTBridgeModule {
             print("-- Native Timer running --")
             count += 1
 
-            EventManager.sendEvent(event: .TimerCount, body: ["count": count])
+            ERNNativeEventManager.sendEvent(event: .TimerCount, body: ["count": count])
         }
     }
 }

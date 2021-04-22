@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Button, StyleSheet, NativeModules } from 'react-native';
-import NativeEventManager from '~/utils/event';
+import ERNEventManager from '~/utils/event';
 import Router from '~/utils/router';
 
-const { ERNModule, CppModule } = NativeModules;
-const { multiply, sendTestEvent } = ERNModule;
+const { ERNNative, CppModule } = NativeModules;
+const { multiply, sendTestEvent } = ERNNative;
 
 function NativeModuleDemo() {
   const [result, setResult] = useState(NaN);
 
   useEffect(() => {
-    const subscription = NativeEventManager.addListener('EventReminder', (res) => {
+    const subscription = ERNEventManager.addListener('EventReminder', (res) => {
       console.log('----- addListener EventReminder ----', res);
     });
     return () => subscription.remove();

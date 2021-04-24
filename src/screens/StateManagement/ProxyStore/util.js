@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const isFunction = (fn) => typeof fn === 'function';
 
 export const isUndefined = (prop) => typeof prop === 'undefined';
@@ -22,7 +23,7 @@ export const addProxy = (o, handler) => {
     Object.keys(o).forEach((key) => {
       const value = o[key];
       const newValue = addProxy(value, handler);
-      console.log('key-------', key, newValue);
+      //   console.log('key-------', key, newValue);
       o[key] = newValue;
     });
   } else {

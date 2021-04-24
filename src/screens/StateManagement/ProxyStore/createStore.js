@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { broadcast } from './pub';
 import stores from './stores';
 import useStore from './useStore';
@@ -45,7 +46,7 @@ export const createStore = (config) => {
 
   const handler = {
     set(target, prop, newValue) {
-      console.log('set newValue---', newValue);
+      //   console.log('set newValue---', newValue);
       if (disableProps.includes(prop) || isFunction(newValue)) {
         target[prop] = newValue;
       } else {

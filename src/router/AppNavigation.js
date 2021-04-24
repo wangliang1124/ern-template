@@ -19,6 +19,7 @@ const routeNames = [
   'StateManagement',
   'SwiperDemo',
   'TabBarDemo',
+  'PushNotificationOnlyIOS',
 ];
 
 const StackNavigator = () => (

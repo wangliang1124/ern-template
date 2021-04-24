@@ -7,6 +7,7 @@ import NativeModuleDemo from '~/screens/NativeModuleDemo';
 import LightDemo from '~/screens/NativeModuleDemo/LightDemo';
 import MapDemo from '~/screens/NativeModuleDemo/MapDemo';
 import Performance from '~/screens/Performance';
+import PushNotificationOnlyIOS from '~/screens/PushNotifications/PushNotificationOnlyIOS';
 import RNFSDemo from '~/screens/RNFS';
 import SafeAreaDemo from '~/screens/SafeAreaDemo';
 import FullPage from '~/screens/SafeAreaDemo/FullPage';
@@ -120,6 +121,10 @@ export const Screens = {
   TabBarDemo: {
     name: 'TabBarDemo',
     component: TabBarDemo,
+  },
+  PushNotificationOnlyIOS: {
+    name: 'PushNotificationOnlyIOS',
+    component: PushNotificationOnlyIOS,
   },
 };
 

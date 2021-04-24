@@ -17,6 +17,8 @@ import ContextProviderConsumer from '~/screens/StateManagement/Context/ContextPr
 import ContextProviderUsingHook from '~/screens/StateManagement/Context/ContextProviderUsingHook';
 import ProviderStoreDemo from '~/screens/StateManagement/Counter';
 import ProxyStoreDemo from '~/screens/StateManagement/ProxyStoreDemo';
+import SwiperDemo from '~/screens/Swiper';
+import TabBarDemo from '~/screens/TabBar';
 
 /*
 说明： 在这个项目中所有的导航配置放在这里统一管理，
@@ -110,6 +112,14 @@ export const Screens = {
   ProxyStoreDemo: {
     name: 'ProxyStoreDemo',
     component: ProxyStoreDemo,
+  },
+  SwiperDemo: {
+    name: 'SwiperDemo',
+    component: SwiperDemo,
+  },
+  TabBarDemo: {
+    name: 'TabBarDemo',
+    component: TabBarDemo,
   },
 };
 

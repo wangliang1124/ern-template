@@ -17,6 +17,8 @@ const routeNames = [
   'SafeAreaDemo',
   'LandscapeTablet',
   'StateManagement',
+  'SwiperDemo',
+  'TabBarDemo',
 ];
 
 const StackNavigator = () => (

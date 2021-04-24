@@ -12,6 +12,11 @@ import SafeAreaDemo from '~/screens/SafeAreaDemo';
 import FullPage from '~/screens/SafeAreaDemo/FullPage';
 import NoSafeArea from '~/screens/SafeAreaDemo/NoSafeArea';
 import SafeArea from '~/screens/SafeAreaDemo/SafeArea';
+import StateManagement from '~/screens/StateManagement';
+import ContextProviderConsumer from '~/screens/StateManagement/Context/ContextProviderConsumer';
+import ContextProviderUsingHook from '~/screens/StateManagement/Context/ContextProviderUsingHook';
+import ProviderStoreDemo from '~/screens/StateManagement/Counter';
+import ProxyStoreDemo from '~/screens/StateManagement/ProxyStoreDemo';
 
 /*
 说明： 在这个项目中所有的导航配置放在这里统一管理，
@@ -82,6 +87,29 @@ export const Screens = {
   LandscapeTablet: {
     name: 'LandscapeTablet',
     component: LandscapeTablet,
+  },
+  StateManagement: {
+    name: 'StateManagement',
+    component: StateManagement,
+    options: {
+      title: 'State Management',
+    },
+  },
+  ContextProviderConsumer: {
+    name: 'ContextProviderConsumer',
+    component: ContextProviderConsumer,
+  },
+  ContextProviderUsingHook: {
+    name: 'ContextProviderUsingHook',
+    component: ContextProviderUsingHook,
+  },
+  ProviderStoreDemo: {
+    name: 'ProviderStoreDemo',
+    component: ProviderStoreDemo,
+  },
+  ProxyStoreDemo: {
+    name: 'ProxyStoreDemo',
+    component: ProxyStoreDemo,
   },
 };
 

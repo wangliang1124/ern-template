@@ -16,6 +16,7 @@ const routeNames = [
   'LocalStorageDemo',
   'SafeAreaDemo',
   'LandscapeTablet',
+  'StateManagement',
 ];
 
 const StackNavigator = () => (

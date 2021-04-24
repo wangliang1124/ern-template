@@ -6,7 +6,7 @@ export const navStateRef = React.createRef(null);
 export const navigationRefStack = [];
 
 export function updateRefs(ref) {
-  console.log('-------- update ref --------', ref);
+  //   console.log('-------- update ref --------', ref);
   if (ref) {
     navigationRefStack.push(ref);
   } else {

@@ -54,9 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 在 RN 中调用原生模块的时候也会触发 RCTBridge 的建立
         // RCTRootViewManager.initBridge()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            ERNNativeEventManager.sendEvent(event: .AppOpened)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            ERNNativeEventManager.sendEvent(event: .AppOpened)
+//        }
 
         return true
     }
